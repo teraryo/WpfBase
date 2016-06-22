@@ -36,17 +36,17 @@
         </Grid>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="80"></RowDefinition>
-                <RowDefinition Height="80"></RowDefinition>
-                <RowDefinition Height="6*"></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*" MaxHeight="250"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="EndPoint" 
+            <TextBlock Text="Endpoint" 
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"></TextBlock>
             <TextBox Grid.Row="0"
                      MinWidth="320"
-                     Margin="10"
+                     Margin="10,20,10,0"
                      Height="30"
                      FontSize="16"
                      TextAlignment="Center"
@@ -62,7 +62,7 @@
                      FontSize="16"
                      TextAlignment="Center"
                      Grid.Row="1"
-                     Margin="10"
+                     Margin="10,20,10,0"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Right"
                      Text="{Binding ContentTypeText}"></TextBox>
@@ -70,20 +70,27 @@
                        Grid.Row="2" Grid.Column="0"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"></TextBlock>
-            <TextBox Grid.Row="2"
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox 
+                     Grid.Column="1"
                      FontSize="16"
-                     MinWidth="320"
-                     Margin="10,25"
+                     Margin="10,35,10,10"
                      AcceptsReturn="True"
-                     HorizontalAlignment="Right"
                      VerticalScrollBarVisibility="Auto"
+                    
                      Text="{Binding ContentDataText}"></TextBox>
-            <TextBlock Text="Methods" 
+            </Grid>
+            <TextBlock Text="Method" 
                        HorizontalAlignment="Left"
                        Grid.Row="3" Grid.Column="0"
                        VerticalAlignment="Top"></TextBlock>
             <Grid Grid.Row="3"
-                  MinWidth="320"
+                  Margin="0,0,30,0"
+                  MinWidth="280"
                   HorizontalAlignment="Right">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
