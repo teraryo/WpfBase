@@ -1,0 +1,15 @@
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\bin\Debug\WpfSampleApplication.exe.config
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\bin\Debug\WpfSampleApplication.exe
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\bin\Debug\WpfSampleApplication.pdb
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.csprojResolveAssemblyReference.cache
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\MainWindow.baml
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\Page1.baml
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\MainWindow.g.cs
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\Page1.g.cs
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\App.g.cs
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication_MarkupCompile.cache
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.g.resources
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.Properties.Resources.resources
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.csproj.GenerateResource.Cache
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.exe
+\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.pdb

@@ -1,0 +1,5 @@
+\\Mac\Home\WpfBase\WpfBase\WpfBase\bin\Debug\WpfBase.dll
+\\Mac\Home\WpfBase\WpfBase\WpfBase\bin\Debug\WpfBase.pdb
+\\Mac\Home\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.csprojResolveAssemblyReference.cache
+\\Mac\Home\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.dll
+\\Mac\Home\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.pdb
