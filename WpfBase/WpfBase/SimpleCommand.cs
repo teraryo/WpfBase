@@ -9,7 +9,11 @@ namespace WpfBase
         {
 
         }
-     
+        public SimpleCommand(Action act)
+            : base(param => act())
+        {
+        }
+
         public override bool CanExecute(object parameter)
         {
             return true;

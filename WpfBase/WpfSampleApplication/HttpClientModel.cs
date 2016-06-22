@@ -30,7 +30,7 @@ namespace WpfSampleApplication
             }
         }
 
-        public async Task Get()
+        public async void Get()
         {
             ConsoleText = "Start GET ...";
             try
@@ -43,7 +43,7 @@ namespace WpfSampleApplication
             }
         }
 
-        public async Task Post()
+        public async void Post()
         {
             ConsoleText = "Start POST ...";
             try
@@ -56,7 +56,7 @@ namespace WpfSampleApplication
             }
         }
 
-        public async Task Put()
+        public async void Put()
         {
             ConsoleText = "Start PUT ...";
             try
@@ -69,7 +69,7 @@ namespace WpfSampleApplication
             }
         }
 
-        public async Task Delete()
+        public async void Delete()
         {
             ConsoleText = "Start DELETE ...";
             try

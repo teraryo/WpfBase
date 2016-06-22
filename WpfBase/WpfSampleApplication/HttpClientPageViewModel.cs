@@ -26,25 +26,25 @@ namespace WpfSampleApplication
             ContentTypeText = "text/plain";
             GetCommand = new SimpleCommand(param =>
             {
-                RequestCommand = new SimpleCommand(o => Model.Get());
+                RequestCommand = new SimpleCommand(Model.Get);
                 OnPropertyChanged();
                 SetButtonBrush("GET");
             });
             PostCommand = new SimpleCommand(param =>
             {
-                RequestCommand = new SimpleCommand(o => Model.Post());
+                RequestCommand = new SimpleCommand(Model.Post);
                 OnPropertyChanged();
                 SetButtonBrush("POST");
             });
             PutCommand = new SimpleCommand(param =>
             {
-                RequestCommand = new SimpleCommand(o => Model.Post());
+                RequestCommand = new SimpleCommand(Model.Post);
                 OnPropertyChanged();
                 SetButtonBrush("PUT");
             });
             DeleteCommand = new SimpleCommand(param =>
             {
-                RequestCommand = new SimpleCommand(o => Model.Delete());
+                RequestCommand = new SimpleCommand(Model.Delete);
                 OnPropertyChanged();
                 SetButtonBrush("DELETE");
             });
