@@ -5,9 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       WindowTitle="HTTP Client"
-      Height="800" Width="1280"
+      MaxHeight="800" MaxWidth="1280"
+      d:DesignHeight="800" d:DesignWidth="1280"
 	Title="Page1">
-    <Grid>
+    <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"></ColumnDefinition>
             <ColumnDefinition Width="20"></ColumnDefinition>
@@ -19,9 +20,11 @@
                 <RowDefinition Height="70"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBox Grid.Row="0"
-                 Text="{Binding ConsoleText, Mode=OneWay}"
-                 Background="#FF1D1D1D" Foreground="Azure"
-                 BorderBrush="Gray"></TextBox>
+                    Text="{Binding ConsoleText, Mode=OneWay}"
+                    Background="#FF1D1D1D" Foreground="Azure"
+                    VerticalScrollBarVisibility="Auto"
+                    AcceptsReturn="True"
+                    BorderBrush="Gray"></TextBox>
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -31,7 +34,6 @@
                         Command="{Binding RequestCommand}"></Button>
             </StackPanel>
         </Grid>
-      
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"></RowDefinition>
@@ -39,71 +41,78 @@
                 <RowDefinition Height="6*"></RowDefinition>
                 <RowDefinition Height="5*"></RowDefinition>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <TextBlock Text="EndPoint" 
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"></TextBlock>
-            <TextBox Grid.Row="0" Height="30" Width="400"
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     Margin="10"
+                     Height="30"
                      FontSize="16"
                      TextAlignment="Center"
-                     HorizontalAlignment="Right"
                      VerticalAlignment="Center"
                      Text="{Binding EndpointText}"></TextBox>
             <TextBlock Text="ContentType"
-                       Grid.Row="1"
+                       Grid.Row="1" Grid.Column="0"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"></TextBlock>
-            <TextBox Height="30" Width="400"
+            <TextBox Height="30"
+                     Grid.Column="1" 
                      FontSize="16"
                      TextAlignment="Center"
                      Grid.Row="1"
-                     HorizontalAlignment="Right"
+                     Margin="10"
                      VerticalAlignment="Center"
                      Text="{Binding ContentTypeText}"></TextBox>
             <TextBlock Text="ContentData"
-                       Grid.Row="2"
+                       Grid.Row="2" Grid.Column="0"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"></TextBlock>
-            <TextBox Height="250" Width="400"
-                     FontSize="16"
+            <TextBox Grid.Column="1" 
                      Grid.Row="2"
-                     HorizontalAlignment="Right"
+                     FontSize="16"
+                     Margin="10,40"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
                      Text="{Binding ContentDataText}"></TextBox>
-            <Grid Grid.Row="3">
+            <TextBlock Text="Methods" 
+                       HorizontalAlignment="Left"
+                       Grid.Row="3" Grid.Column="0"
+                       VerticalAlignment="Center"></TextBlock>
+            <Grid Grid.Row="3" Grid.Column="1"
+                  MaxWidth="300">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="150"></ColumnDefinition>
-                    <ColumnDefinition Width="150"></ColumnDefinition>
-                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Methods" 
-                       HorizontalAlignment="Left"
-                       Grid.RowSpan="2"
-                       VerticalAlignment="Center"></TextBlock>
                 <Button HorizontalAlignment="Center" 
             	        Height="100" Width="100" Content="GET"
-                        Grid.Row="0" Grid.Column="1"
+                        Grid.Row="0" Grid.Column="0"
                         Background="{Binding GetBrush}"
                         Command="{Binding GetCommand}">
                 </Button>
                 <Button HorizontalAlignment="Center" 
             	        Height="100" Width="100" Content="POST"
-                        Grid.Row="1" Grid.Column="1"
+                        Grid.Row="0" Grid.Column="1"
                         Background="{Binding PostBrush}"
                         Command="{Binding PostCommand}">
                 </Button>
                 <Button HorizontalAlignment="Center" 
             	        Height="100" Width="100" Content="PUT"
-                        Grid.Row="0" Grid.Column="2"
+                        Grid.Row="1" Grid.Column="0"
                         Background="{Binding PutBrush}"
                         Command="{Binding PutCommand}">
                 </Button>
                 <Button HorizontalAlignment="Center" 
             	        Height="100" Width="100" Content="DELETE"
-                        Grid.Row="1" Grid.Column="2"
+                        Grid.Row="1" Grid.Column="1"
                         Background="{Binding DeleteBrush}"
                         Command="{Binding DeleteCommand}">
                 </Button>
