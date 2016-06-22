@@ -4,7 +4,7 @@ using System.Windows.Navigation;
 
 namespace WpfBase
 {
-    static class NavigationService
+    public static class NavigationService
     {
         internal static void Navigate(Type type ,params dynamic[] param)
         {

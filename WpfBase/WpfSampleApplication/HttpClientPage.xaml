@@ -1,0 +1,114 @@
+﻿<Page x:Class="WpfSampleApplication.HttpClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      WindowTitle="Http Client"
+      Height="800" Width="1280"
+	Title="Page1">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0"
+                 Text="{Binding ConsoleText, Mode=OneWay}"
+                 Background="#FF1D1D1D" Foreground="Azure"
+                 BorderBrush="Gray"></TextBox>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Row="1">
+                <Button Content="START REQUEST" Height="50" Width="200"
+                        Background="DodgerBlue"
+                        Command="{Binding RequestCommand}"></Button>
+            </StackPanel>
+        </Grid>
+      
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="EndPoint" 
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></TextBlock>
+            <TextBox Height="30" Width="400"
+                     FontSize="16"
+                     TextAlignment="Center"
+                     HorizontalAlignment="Right"
+                     VerticalAlignment="Center"
+                     Text="{Binding EndpointText}"></TextBox>
+            <TextBlock Text="ContentType"
+                       Grid.Row="1"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></TextBlock>
+            <TextBox Height="30" Width="400"
+                     FontSize="16"
+                     TextAlignment="Center"
+                     Grid.Row="1"
+                     HorizontalAlignment="Right"
+                     VerticalAlignment="Center"
+                     Text="{Binding ContentTypeText}"></TextBox>
+            <TextBlock Text="ContentData"
+                       Grid.Row="2"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></TextBlock>
+            <TextBox Height="250" Width="400"
+                     FontSize="16"
+                     Grid.Row="2"
+                     HorizontalAlignment="Right"
+                     Text="{Binding ContentDataText}"></TextBox>
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Methods" 
+                       HorizontalAlignment="Left"
+                       Grid.RowSpan="2"
+                       VerticalAlignment="Center"></TextBlock>
+                <Button HorizontalAlignment="Center" 
+            	        Height="100" Width="100" Content="GET"
+                        Grid.Row="0" Grid.Column="1"
+                        Background="{Binding GetBrush}"
+                        Command="{Binding GetCommand}">
+                </Button>
+                <Button HorizontalAlignment="Center" 
+            	        Height="100" Width="100" Content="POST"
+                        Grid.Row="1" Grid.Column="1"
+                        Background="{Binding PostBrush}"
+                        Command="{Binding PostCommand}">
+                </Button>
+                <Button HorizontalAlignment="Center" 
+            	        Height="100" Width="100" Content="PUT"
+                        Grid.Row="0" Grid.Column="2"
+                        Background="{Binding PutBrush}"
+                        Command="{Binding PutCommand}">
+                </Button>
+                <Button HorizontalAlignment="Center" 
+            	        Height="100" Width="100" Content="DELETE"
+                        Grid.Row="1" Grid.Column="2"
+                        Background="{Binding DeleteBrush}"
+                        Command="{Binding DeleteCommand}">
+                </Button>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

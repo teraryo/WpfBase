@@ -23,6 +23,7 @@ namespace WpfSampleApplication
         public MainWindow()
         {
             InitializeComponent();
+            WpfBase.NavigationService.MainWindow = this;
         }
     }
 }

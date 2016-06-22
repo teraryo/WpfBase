@@ -20,11 +20,14 @@ C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\bin\Debug\WpfSample
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\bin\Debug\WpfSampleApplication.pdb
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.csprojResolveAssemblyReference.cache
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\MainWindow.baml
-C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\Page1.baml
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\MainWindow.g.cs
-C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\Page1.g.cs
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\App.g.cs
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication_MarkupCompile.cache
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.g.resources
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.Properties.Resources.resources
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\WpfSampleApplication.csproj.GenerateResource.Cache
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\bin\Debug\WpfBase.dll
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\bin\Debug\WpfBase.pdb
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\App.baml
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\HttpClientPage.baml
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\HttpClientPage.g.cs

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Navigation;
 using WpfBase.Utility;
 
 namespace WpfBase.Communication
 {
-    static class Http
+    public static class HttpClient
     {
         private static int TIMEOUT = 10000;
 
@@ -13,34 +15,41 @@ namespace WpfBase.Communication
             TIMEOUT = timeout;
         }
 
-        public static dynamic PostJson(object obj, string url)
+        public async static Task<string> PostAsync(string url, string data, string contentType)
         {
-            var str = Post(DynamicJson.Serialize(obj), url,"application/json");
+            return await Task.Run(() => Post(url, data, contentType));
+        }
+        public async static Task<string> PutAsync(string url, string data, string contentType)
+        {
+            return await Task.Run(() => Put(url, data, contentType));
+        }
+        public async static Task<string> GetAsync(string url, string data = "")
+        {
+            return await Task.Run(() => Get(url, data));
+        }
+        public async static Task<string> DeleteAsync(string url, string data = "")
+        {
+            return await Task.Run(() => Delete(url, data));
+        }
+
+        public async static Task<dynamic> PostJsonAsync(string url, object obj)
+        {
+            var str = await PostAsync(url, DynamicJson.Serialize(obj), "application/json");
             return DynamicJson.Parse(str);
         }
 
-        public static dynamic PutJson(object obj, string url)
+        public async static Task<dynamic> PutJsonAsync(string url, object obj)
         {
-            var str = Put(DynamicJson.Serialize(obj), url, "application/json");
+            var str = await PutAsync(url, DynamicJson.Serialize(obj), "application/json");
             return DynamicJson.Parse(str);
         }
 
-        public static string Get(string url)
-        {
-            return Get("", url);
-        }
-
-        public static string Delete(string url)
-        {
-            return Delete("", url);
-        }
-
-        public static string Post(string postData, string url, string contentType)
+        public static string Post(string url, string data, string contentType)
         {
             var enc = Encoding.GetEncoding("utf-8");
-            Console.WriteLine("\nPOST DATA\n" + postData);
+            Console.WriteLine("\nPOST DATA\n" + data);
             Console.WriteLine("URL\n" + url);
-            byte[] putDataBytes = Encoding.ASCII.GetBytes(postData);
+            byte[] putDataBytes = Encoding.ASCII.GetBytes(data);
 
             System.Net.WebRequest req = System.Net.WebRequest.Create(url);
             req.Timeout = TIMEOUT;
@@ -62,12 +71,12 @@ namespace WpfBase.Communication
             return str;
         }
 
-        public static string Put(string putData, string url, string contentType)
+        public static string Put(string url, string data, string contentType)
         {
             var enc = Encoding.GetEncoding("utf-8");
-            Console.WriteLine("\nPUT DATA\n" + putData);
+            Console.WriteLine("\nPUT DATA\n" + data);
             Console.WriteLine("URL\n" + url);
-            byte[] putDataBytes = Encoding.ASCII.GetBytes(putData);
+            byte[] putDataBytes = Encoding.ASCII.GetBytes(data);
 
             System.Net.WebRequest req = System.Net.WebRequest.Create(url);
             req.Timeout = TIMEOUT;
@@ -89,14 +98,14 @@ namespace WpfBase.Communication
             return str;
         }
 
-        public static string Get(string getData, string url)
+        public static string Get(string url, string data = "")
         {
             var enc = Encoding.GetEncoding("utf-8");
-            Console.WriteLine("\nGET DATA\n" + getData);
+            Console.WriteLine("\nGET DATA\n" + data);
             Console.WriteLine("URL\n" + url);
 
-            if (getData != null)
-                url = url + "?" + getData;
+            if (!string.IsNullOrEmpty(data))
+                url = url + "?" + data;
             System.Net.WebRequest req = System.Net.WebRequest.Create(url);
             req.Timeout = TIMEOUT;
             req.Method = "GET";
@@ -111,14 +120,14 @@ namespace WpfBase.Communication
             return str;
         }
 
-        public static string Delete(string deleteData, string url)
+        public static string Delete(string url, string data = "")
         {
             var enc = Encoding.GetEncoding("utf-8");
-            Console.WriteLine("\nDELETE DATA\n" + deleteData);
+            Console.WriteLine("\nDELETE DATA\n" + data);
             Console.WriteLine("URL\n" + url);
 
-            if (deleteData != null)
-                url = url + "?" + deleteData;
+            if (!string.IsNullOrEmpty(data))
+                url = url + "?" + data;
             System.Net.WebRequest req = System.Net.WebRequest.Create(url);
             req.Timeout = TIMEOUT;
             req.Method = "DELETE";

@@ -46,9 +46,10 @@
   <ItemGroup>
     <Compile Include="BasicCommand.cs" />
     <Compile Include="CommandBase.cs" />
-    <Compile Include="Communication\Http.cs" />
+    <Compile Include="Communication\HttpClient.cs" />
     <Compile Include="DataConverterBase.cs" />
     <Compile Include="DelegateCommandBase.cs" />
+    <Compile Include="ModelBase.cs" />
     <Compile Include="NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleCommand.cs" />
