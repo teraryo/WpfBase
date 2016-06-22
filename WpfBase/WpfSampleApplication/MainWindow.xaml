@@ -2,6 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowState="Maximized"
-        ShowsNavigationUI="False"
-        Title="MainWindow"  Source="HttpClientPage.xaml" Background="#FF292929">
+        ShowsNavigationUI="False"                 
+        MinHeight="650" MinWidth="900"
+        Title="MainWindow"  Source="HttpClientPage.xaml" 
+        Background="#FF292929">
 </NavigationWindow>
