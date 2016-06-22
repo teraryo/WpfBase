@@ -38,7 +38,7 @@ namespace WpfSampleApplication
             });
             PutCommand = new SimpleCommand(param =>
             {
-                RequestCommand = new SimpleCommand(Model.Post);
+                RequestCommand = new SimpleCommand(Model.Put);
                 OnPropertyChanged();
                 SetButtonBrush("PUT");
             });
