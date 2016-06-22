@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Liquid.Model
+namespace WpfBase.Utility
 {
     /// <summary>
     /// CSV形式のストリームを読み込む CsvReader を実装します。

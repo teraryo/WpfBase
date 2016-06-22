@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace liquid_app_prince_front.Base
+namespace WpfBase
 {
 
     public abstract class DelegateCommandBase : CommandBase

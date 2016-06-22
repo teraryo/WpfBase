@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\obj\Debug\
 WpfSampleApplication
 none
 false
 DEBUG;TRACE
-\\Mac\Home\WpfBase\WpfBase\WpfSampleApplication\App.xaml
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfSampleApplication\App.xaml
 2400784391
 
-10-488079513
-121886138872
+10789943254
+12-1401562060
 MainWindow.xaml;Page1.xaml;
 
 False

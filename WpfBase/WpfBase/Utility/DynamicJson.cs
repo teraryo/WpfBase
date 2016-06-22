@@ -21,7 +21,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace Liquid.Model
+namespace WpfBase.Utility
 {
     public class DynamicJson : DynamicObject
     {

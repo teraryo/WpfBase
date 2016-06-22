@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace liquid_app_prince_front.Base
+namespace WpfBase
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

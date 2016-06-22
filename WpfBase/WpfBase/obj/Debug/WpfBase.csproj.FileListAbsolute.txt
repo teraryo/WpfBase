@@ -3,3 +3,8 @@
 \\Mac\Home\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.csprojResolveAssemblyReference.cache
 \\Mac\Home\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.dll
 \\Mac\Home\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.pdb
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfBase\bin\Debug\WpfBase.dll
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfBase\bin\Debug\WpfBase.pdb
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.csprojResolveAssemblyReference.cache
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.dll
+C:\Users\wang\Documents\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.pdb

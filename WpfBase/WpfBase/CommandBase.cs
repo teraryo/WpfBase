@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace liquid_app_prince_front.Base
+namespace WpfBase
 {
     public abstract class CommandBase : ICommand
     {

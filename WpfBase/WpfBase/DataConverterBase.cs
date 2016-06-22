@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace liquid_app_prince_front.Base
+namespace WpfBase
 {
     /// <summary>
     /// データーコンバーター用の基底クラス
