@@ -13,21 +13,9 @@ namespace WpfSampleApplication
 {
     class HttpClientModel:ModelBase
     {
-        private string _consoleText;
-        public string ContentTypeText { get; set; }
-
-        public string ContentDataText { get; set; }
-
-        public string EndpointText { get; set; }
-
-        public string ConsoleText
+        public HttpClientModel()
         {
-            get { return _consoleText; }
-            set
-            {
-                _consoleText = value; 
-                OnPropertyChanged();
-            }
+            ContentTypeText = "text/plain";
         }
 
         public async void Get()
@@ -81,5 +69,27 @@ namespace WpfSampleApplication
                 ConsoleText = "Failed" + e;
             }
         }
+
+        #region Binding Properties
+        public string ContentTypeText { get; set; }
+
+        public string ContentDataText { get; set; }
+
+        public string EndpointText { get; set; }
+
+        public string ConsoleText
+        {
+            get { return _consoleText; }
+            private set
+            {
+                _consoleText = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
+        #region Private Members
+        private string _consoleText;
+        #endregion
     }
 }
