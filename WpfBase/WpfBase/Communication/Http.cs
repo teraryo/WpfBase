@@ -6,93 +6,131 @@ namespace WpfBase.Communication
 {
     static class Http
     {
-        public static dynamic Post(object obj, string url)
+        private static int TIMEOUT = 10000;
+
+        public static void SetTimeOut(int timeout)
         {
-            //文字コードを指定する
-            var enc = Encoding.GetEncoding("utf-8");
-
-            //POST送信する文字列を作成
-            string postData = DynamicJson.Serialize(obj);
-            Console.WriteLine("\nPOST DATA\n" + postData);
-            Console.WriteLine("URL\n" + url);
-            //バイト型配列に変換
-            byte[] postDataBytes = Encoding.ASCII.GetBytes(postData);
-
-            //WebRequestの作成
-            System.Net.WebRequest req = System.Net.WebRequest.Create(url);
-
-            //メソッドにPOSTを指定
-            req.Method = "POST";
-            //ContentTypeを"application/application/json"にする
-            req.ContentType = "application/json";
-            //POST送信するデータの長さを指定
-            req.ContentLength = postDataBytes.Length;
-
-            //データをPOST送信するためのStreamを取得
-            System.IO.Stream reqStream = req.GetRequestStream();
-            //送信するデータを書き込む
-            reqStream.Write(postDataBytes, 0, postDataBytes.Length);
-            reqStream.Close();
-
-            //サーバーからの応答を受信するためのWebResponseを取得
-            System.Net.WebResponse res = req.GetResponse();
-            req.Timeout = 10000;
-            //応答データを受信するためのStreamを取得
-            System.IO.Stream resStream = res.GetResponseStream();
-            //受信して表示
-            System.IO.StreamReader sr = new System.IO.StreamReader(resStream, enc);
-            string str = sr.ReadToEnd();
-            Console.WriteLine("\nRESPONCE DATA\n" + str);
-            //閉じる
-            sr.Close();
-            dynamic json = DynamicJson.Parse(str);
-            // Writer.WriteLine("PARSED JSON\n" + json);
-
-            return json;
+            TIMEOUT = timeout;
         }
 
-        public static dynamic Put(object obj, string url)
+        public static dynamic PostJson(object obj, string url)
         {
-            //文字コードを指定する
+            var str = Post(DynamicJson.Serialize(obj), url,"application/json");
+            return DynamicJson.Parse(str);
+        }
+
+        public static dynamic PutJson(object obj, string url)
+        {
+            var str = Put(DynamicJson.Serialize(obj), url, "application/json");
+            return DynamicJson.Parse(str);
+        }
+
+        public static string Get(string url)
+        {
+            return Get("", url);
+        }
+
+        public static string Delete(string url)
+        {
+            return Delete("", url);
+        }
+
+        public static string Post(string postData, string url, string contentType)
+        {
             var enc = Encoding.GetEncoding("utf-8");
-            //PUT送信する文字列を作成
-            string postData = DynamicJson.Serialize(obj);
-            Console.WriteLine("\nPUT DATA\n" + postData);
+            Console.WriteLine("\nPOST DATA\n" + postData);
             Console.WriteLine("URL\n" + url);
-            //バイト型配列に変換
             byte[] putDataBytes = Encoding.ASCII.GetBytes(postData);
 
-            //WebRequestの作成
             System.Net.WebRequest req = System.Net.WebRequest.Create(url);
-            req.Timeout = 10000;
-            //メソッドにPUTを指定
-            req.Method = "PUT";
-            //ContentTypeを"application/application/json"にする
-            req.ContentType = "application/json";
-            //PUT送信するデータの長さを指定
+            req.Timeout = TIMEOUT;
+            req.Method = "POST";
+            req.ContentType = contentType;
             req.ContentLength = putDataBytes.Length;
 
-            //データをPUT送信するためのStreamを取得
             System.IO.Stream reqStream = req.GetRequestStream();
-            //送信するデータを書き込む
             reqStream.Write(putDataBytes, 0, putDataBytes.Length);
             reqStream.Close();
 
-            //サーバーからの応答を受信するためのWebResponseを取得
             System.Net.WebResponse res = req.GetResponse();
-            //応答データを受信するためのStreamを取得
             System.IO.Stream resStream = res.GetResponseStream();
 
-            //受信して表示
             System.IO.StreamReader sr = new System.IO.StreamReader(resStream, enc);
             string str = sr.ReadToEnd();
             Console.WriteLine("\nRESPONCE DATA\n" + str);
-            //閉じる
             sr.Close();
-            dynamic json = DynamicJson.Parse(str);
-            // Writer.WriteLine("PARSED JSON\n" + json);
+            return str;
+        }
 
-            return json;
+        public static string Put(string putData, string url, string contentType)
+        {
+            var enc = Encoding.GetEncoding("utf-8");
+            Console.WriteLine("\nPUT DATA\n" + putData);
+            Console.WriteLine("URL\n" + url);
+            byte[] putDataBytes = Encoding.ASCII.GetBytes(putData);
+
+            System.Net.WebRequest req = System.Net.WebRequest.Create(url);
+            req.Timeout = TIMEOUT;
+            req.Method = "PUT";
+            req.ContentType = contentType;
+            req.ContentLength = putDataBytes.Length;
+
+            System.IO.Stream reqStream = req.GetRequestStream();
+            reqStream.Write(putDataBytes, 0, putDataBytes.Length);
+            reqStream.Close();
+
+            System.Net.WebResponse res = req.GetResponse();
+            System.IO.Stream resStream = res.GetResponseStream();
+
+            System.IO.StreamReader sr = new System.IO.StreamReader(resStream, enc);
+            string str = sr.ReadToEnd();
+            Console.WriteLine("\nRESPONCE DATA\n" + str);
+            sr.Close();
+            return str;
+        }
+
+        public static string Get(string getData, string url)
+        {
+            var enc = Encoding.GetEncoding("utf-8");
+            Console.WriteLine("\nGET DATA\n" + getData);
+            Console.WriteLine("URL\n" + url);
+
+            if (getData != null)
+                url = url + "?" + getData;
+            System.Net.WebRequest req = System.Net.WebRequest.Create(url);
+            req.Timeout = TIMEOUT;
+            req.Method = "GET";
+
+            System.Net.WebResponse res = req.GetResponse();
+            System.IO.Stream resStream = res.GetResponseStream();
+
+            System.IO.StreamReader sr = new System.IO.StreamReader(resStream, enc);
+            string str = sr.ReadToEnd();
+            Console.WriteLine("\nRESPONCE DATA\n" + str);
+            sr.Close();
+            return str;
+        }
+
+        public static string Delete(string deleteData, string url)
+        {
+            var enc = Encoding.GetEncoding("utf-8");
+            Console.WriteLine("\nDELETE DATA\n" + deleteData);
+            Console.WriteLine("URL\n" + url);
+
+            if (deleteData != null)
+                url = url + "?" + deleteData;
+            System.Net.WebRequest req = System.Net.WebRequest.Create(url);
+            req.Timeout = TIMEOUT;
+            req.Method = "DELETE";
+
+            System.Net.WebResponse res = req.GetResponse();
+            System.IO.Stream resStream = res.GetResponseStream();
+
+            System.IO.StreamReader sr = new System.IO.StreamReader(resStream, enc);
+            string str = sr.ReadToEnd();
+            Console.WriteLine("\nRESPONCE DATA\n" + str);
+            sr.Close();
+            return str;
         }
     }
 }
