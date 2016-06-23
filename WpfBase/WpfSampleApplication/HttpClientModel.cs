@@ -12,7 +12,7 @@ using WpfSampleApplication.Annotations;
 
 namespace WpfSampleApplication
 {
-    class HttpClientModel : ModelBase
+    class HttpClientModel : NotifyPropertyChagedModelBase
     {
         public HttpClientModel()
         {

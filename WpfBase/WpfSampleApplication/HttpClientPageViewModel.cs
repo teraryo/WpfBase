@@ -7,9 +7,8 @@ namespace WpfSampleApplication
     class HttpClientPageViewModel : ViewModelBase
     {
         public HttpClientPageViewModel()
+            : base(new HttpClientModel())
         {
-            Model = new HttpClientModel();
-
             GetCommand = new SimpleCommand(param =>
             {
                 RequestCommand = new SimpleCommand(Model.Get);
@@ -84,7 +83,6 @@ namespace WpfSampleApplication
         private new HttpClientModel Model
         {
             get { return (HttpClientModel)base.Model; }
-            set { base.Model = value; }
         }
 
         private void SetButtonBrush(string method)

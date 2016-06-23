@@ -52,7 +52,7 @@
     <Compile Include="Communication\HttpResponce.cs" />
     <Compile Include="DataConverterBase.cs" />
     <Compile Include="DelegateCommandBase.cs" />
-    <Compile Include="ModelBase.cs" />
+    <Compile Include="NotifyPropertyChagedModelBase.cs" />
     <Compile Include="NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleCommand.cs" />

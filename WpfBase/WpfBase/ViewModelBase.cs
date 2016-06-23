@@ -5,17 +5,22 @@ namespace WpfBase
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
-        private ModelBase _model;
+        private readonly NotifyPropertyChagedModelBase _model;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual ModelBase Model
+        protected ViewModelBase()
+        {
+        }
+
+        protected ViewModelBase(NotifyPropertyChagedModelBase model)
+        {
+            _model = model;
+            _model.PropertyChanged += OnPropertyChanged;
+        }
+
+        protected virtual NotifyPropertyChagedModelBase Model
         {
             get { return _model; }
-            set
-            {
-                _model = value;
-                _model.PropertyChanged += OnPropertyChanged;
-            }
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
