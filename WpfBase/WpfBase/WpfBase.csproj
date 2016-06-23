@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +48,8 @@
     <Compile Include="BasicCommand.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="Communication\HttpClient.cs" />
+    <Compile Include="Communication\ObjectTypeHttpClient.cs" />
+    <Compile Include="Communication\HttpResponce.cs" />
     <Compile Include="DataConverterBase.cs" />
     <Compile Include="DelegateCommandBase.cs" />
     <Compile Include="ModelBase.cs" />

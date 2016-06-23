@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +12,12 @@ using WpfSampleApplication.Annotations;
 
 namespace WpfSampleApplication
 {
-    class HttpClientModel:ModelBase
+    class HttpClientModel : ModelBase
     {
         public HttpClientModel()
         {
             ContentTypeText = "text/plain";
+            _client = new HttpClient();
         }
 
         public async void Get()
@@ -23,12 +25,13 @@ namespace WpfSampleApplication
             ConsoleText = "Start GET ...";
             try
             {
-                ConsoleText = await HttpClient.GetAsync(EndpointText, ContentDataText);
+                var res = await _client.GetAsync(EndpointText, ContentDataText);
+                ConsoleText = res.Status + "\n" + res.String;
             }
             catch (Exception e)
             {
-                ConsoleText = "Failed" + e;
-            }
+                ConsoleText = "Error: " + e.Message;
+            }          
         }
 
         public async void Post()
@@ -36,12 +39,13 @@ namespace WpfSampleApplication
             ConsoleText = "Start POST ...";
             try
             {
-                ConsoleText = await HttpClient.PostAsync(EndpointText, ContentDataText, ContentTypeText);
+                var res = await _client.PostAsync(EndpointText, ContentDataText, ContentTypeText);
+                ConsoleText = res.Status + "\n" + res.String;
             }
             catch (Exception e)
             {
-                ConsoleText = "Failed" + e;
-            }
+                ConsoleText = "Error: " + e.Message;
+            }      
         }
 
         public async void Put()
@@ -49,12 +53,14 @@ namespace WpfSampleApplication
             ConsoleText = "Start PUT ...";
             try
             {
-                ConsoleText = await HttpClient.PutAsync(EndpointText, ContentDataText, ContentTypeText);
+                var res = await _client.PutAsync(EndpointText, ContentDataText, ContentTypeText);
+                ConsoleText = res.Status + "\n" + res.String;
             }
             catch (Exception e)
             {
-                ConsoleText = "Failed" + e;
+                ConsoleText = "Error: " + e.Message;
             }
+           
         }
 
         public async void Delete()
@@ -62,11 +68,12 @@ namespace WpfSampleApplication
             ConsoleText = "Start DELETE ...";
             try
             {
-                ConsoleText = await HttpClient.DeleteAsync(EndpointText, ContentDataText);
+                var res = await _client.DeleteAsync(EndpointText, ContentDataText);
+                ConsoleText = res.Status + "\n" + res.String;
             }
             catch (Exception e)
             {
-                ConsoleText = "Failed" + e;
+                ConsoleText = "Error: " + e.Message;
             }
         }
 
@@ -90,6 +97,7 @@ namespace WpfSampleApplication
 
         #region Private Members
         private string _consoleText;
+        private readonly HttpClient _client;
         #endregion
     }
 }

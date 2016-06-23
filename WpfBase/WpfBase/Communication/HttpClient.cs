@@ -1,51 +1,112 @@
 ﻿using System;
+using System.IO;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Navigation;
 using WpfBase.Utility;
 
 namespace WpfBase.Communication
 {
-    public static class HttpClient
+
+    public class HttpClient
     {
-        private static int TIMEOUT = 10000;
-
-        public static void SetTimeOut(int timeout)
+        public HttpClient(string endpoint = null)
         {
-            TIMEOUT = timeout;
+            TIMEOUT = 10000;
+            _endpoint = endpoint;
         }
+        public int TIMEOUT { get; set; }
 
-        public async static Task<string> PostAsync(string url, string data, string contentType)
+        public async Task<HttpResponce> PostAsync(string url, string data, string contentType)
         {
             return await Task.Run(() => Post(url, data, contentType));
         }
-        public async static Task<string> PutAsync(string url, string data, string contentType)
+        public async Task<HttpResponce> PutAsync(string url, string data, string contentType)
         {
             return await Task.Run(() => Put(url, data, contentType));
         }
-        public async static Task<string> GetAsync(string url, string data = "")
+        public async Task<HttpResponce> GetAsync(string url, string data = "")
         {
             return await Task.Run(() => Get(url, data));
         }
-        public async static Task<string> DeleteAsync(string url, string data = "")
+        public async Task<HttpResponce> DeleteAsync(string url, string data = "")
         {
             return await Task.Run(() => Delete(url, data));
         }
 
-        public async static Task<dynamic> PostJsonAsync(string url, object obj)
+        public HttpResponce Post(string url, string data, string contentType)
         {
-            var str = await PostAsync(url, DynamicJson.Serialize(obj), "application/json");
-            return DynamicJson.Parse(str);
+            try
+            {
+                var res = post(url, data, contentType);
+                return new HttpResponce
+                {
+                    Data = res,
+                    Status = WebExceptionStatus.Success
+                };
+            }
+            catch (WebException e)
+            {
+                return getHttpResponce(e);
+            }
+        }
+        public HttpResponce Put(string url, string data, string contentType)
+        {
+            try
+            {
+                var res = put(url, data, contentType);
+                return new HttpResponce
+                {
+                    Data = res,
+                    Status = WebExceptionStatus.Success
+                };
+            }
+            catch (WebException e)
+            {
+                return getHttpResponce(e);
+            }
         }
 
-        public async static Task<dynamic> PutJsonAsync(string url, object obj)
+        public HttpResponce Get(string url, string data)
         {
-            var str = await PutAsync(url, DynamicJson.Serialize(obj), "application/json");
-            return DynamicJson.Parse(str);
+            try
+            {
+                var res = get(url, data);
+                return new HttpResponce
+                {
+                    Data = res,
+                    Status = WebExceptionStatus.Success
+                };
+            }
+            catch (WebException e)
+            {
+                return getHttpResponce(e);
+            }
         }
-
-        public static string Post(string url, string data, string contentType)
+        public HttpResponce Delete(string url, string data)
         {
+            try
+            {
+                var res = delete(url, data);
+                return new HttpResponce
+                {
+                    Data = res,
+                    Status = WebExceptionStatus.Success
+                };
+            }
+            catch (WebException e)
+            {
+                return getHttpResponce(e);
+            }
+        }
+        #region Private Members
+
+        private readonly string _endpoint;
+        protected string post(string url, string data, string contentType)
+        {
+            url = _endpoint + url;
             var enc = Encoding.GetEncoding("utf-8");
             Console.WriteLine("\nPOST DATA\n" + data);
             Console.WriteLine("URL\n" + url);
@@ -71,8 +132,9 @@ namespace WpfBase.Communication
             return str;
         }
 
-        public static string Put(string url, string data, string contentType)
+        protected string put(string url, string data, string contentType)
         {
+            url = _endpoint + url;
             var enc = Encoding.GetEncoding("utf-8");
             Console.WriteLine("\nPUT DATA\n" + data);
             Console.WriteLine("URL\n" + url);
@@ -98,8 +160,9 @@ namespace WpfBase.Communication
             return str;
         }
 
-        public static string Get(string url, string data = "")
+        private string get(string url, string data = "")
         {
+            url = _endpoint + url;
             var enc = Encoding.GetEncoding("utf-8");
             Console.WriteLine("\nGET DATA\n" + data);
             Console.WriteLine("URL\n" + url);
@@ -120,8 +183,9 @@ namespace WpfBase.Communication
             return str;
         }
 
-        public static string Delete(string url, string data = "")
+        private string delete(string url, string data = "")
         {
+            url = _endpoint + url;
             var enc = Encoding.GetEncoding("utf-8");
             Console.WriteLine("\nDELETE DATA\n" + data);
             Console.WriteLine("URL\n" + url);
@@ -141,5 +205,20 @@ namespace WpfBase.Communication
             sr.Close();
             return str;
         }
+
+        protected HttpResponce getHttpResponce(WebException e)
+        {
+            var responce = new HttpResponce();
+            responce.Status = e.Status;
+            try
+            {
+                responce.Data = new StreamReader(e.Response.GetResponseStream()).ReadToEnd();
+            }
+            catch (Exception)
+            {
+            }
+            return responce;
+        }
+        #endregion
     }
 }
