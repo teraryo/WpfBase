@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace WpfBase
 {
-    public abstract class NotifyPropertyChagedModelBase:INotifyPropertyChanged
+    public abstract class NotifyPropertyChangedBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -1,33 +1,25 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
+﻿
 namespace WpfBase
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : NotifyPropertyChangedBase
     {
-        private readonly NotifyPropertyChagedModelBase _model;
-        public event PropertyChangedEventHandler PropertyChanged;
+        private readonly NotifyPropertyChangedBase _model;
 
         protected ViewModelBase()
         {
         }
 
-        protected ViewModelBase(NotifyPropertyChagedModelBase model)
+        protected ViewModelBase(NotifyPropertyChangedBase model)
         {
             _model = model;
             _model.PropertyChanged += OnPropertyChanged;
         }
 
-        protected virtual NotifyPropertyChagedModelBase Model
+        protected virtual NotifyPropertyChangedBase Model
         {
             get { return _model; }
         }
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
         protected virtual void OnPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             OnPropertyChanged(e.PropertyName);
