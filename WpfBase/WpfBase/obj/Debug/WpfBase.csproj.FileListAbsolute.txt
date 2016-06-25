@@ -8,3 +8,7 @@ C:\Users\wang\Documents\WpfBase\WpfBase\WpfBase\bin\Debug\WpfBase.pdb
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.csprojResolveAssemblyReference.cache
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.dll
 C:\Users\wang\Documents\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.pdb
+C:\Users\ryo\Documents\WpfBase\WpfBase\WpfBase\bin\Debug\WpfBase.dll
+C:\Users\ryo\Documents\WpfBase\WpfBase\WpfBase\bin\Debug\WpfBase.pdb
+C:\Users\ryo\Documents\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.dll
+C:\Users\ryo\Documents\WpfBase\WpfBase\WpfBase\obj\Debug\WpfBase.pdb

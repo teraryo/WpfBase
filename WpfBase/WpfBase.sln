@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfBase", "WpfBase\WpfBase.csproj", "{467CAB6A-817F-4D2C-9F0C-9E5693434430}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfSampleApplication", "WpfSampleApplication\WpfSampleApplication.csproj", "{D5A7BA61-E49E-4CBC-BD78-6816DC10C1DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1calculator", "WpfApplication1calculator\WpfApplication1calculator.csproj", "{D90EE1EF-C0DF-4DB5-A804-2D3D8B91493C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D5A7BA61-E49E-4CBC-BD78-6816DC10C1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5A7BA61-E49E-4CBC-BD78-6816DC10C1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5A7BA61-E49E-4CBC-BD78-6816DC10C1DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90EE1EF-C0DF-4DB5-A804-2D3D8B91493C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90EE1EF-C0DF-4DB5-A804-2D3D8B91493C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90EE1EF-C0DF-4DB5-A804-2D3D8B91493C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90EE1EF-C0DF-4DB5-A804-2D3D8B91493C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
