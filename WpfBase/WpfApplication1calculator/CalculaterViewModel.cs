@@ -93,9 +93,7 @@ public ICommand AddCommand
                      }); 
             } 
         } 
-     } 
- } 
-
+    
 
 
 
