@@ -38,15 +38,63 @@ public ICommand AddCommand
     get
     {
         return new SimpleCommand(Param =>
-  {
-      _model.Add();
-      _model.SubStruct();
-      _model.Multiple();
-      _model.Devid();
-      _model.Enter();
-  });
-    }
-}
+        {
+                           _model.Add();
+                           OnPropertyChanged("NumberText");
+                           OnPropertyChanged("OperatorText");
+                       });
+                     } 
+         } 
+         public ICommand SubCommand
+         { 
+             get 
+             { 
+                 return new SimpleCommand(param => 
+                 {
+                         _model.Substract();
+                         OnPropertyChanged("NumberText");
+                         OnPropertyChanged("OperatorText");
+                     }); 
+             } 
+         } 
+         public ICommand MultipleCommand
+        { 
+             get 
+            { 
+                 return new SimpleCommand(param => 
+                 {
+                        _model.Multiple();
+                         OnPropertyChanged("NumberText");
+                         OnPropertyChanged("OperatorText");
+                     }); 
+             } 
+        } 
+        public ICommand DivideCommand
+         { 
+             get 
+             { 
+                return new SimpleCommand(param => 
+                 {
+                         _model.Divide();
+                         OnPropertyChanged("NumberText");
+                         OnPropertyChanged("OperatorText");
+                  }); 
+          } 
+       } 
+        public ICommand EnterCommand
+        { 
+             get 
+             { 
+                 return new SimpleCommand(param => 
+                 {
+                         _model.Enter();
+                        OnPropertyChanged("NumberText");
+                        OnPropertyChanged("OperatorText");
+                     }); 
+            } 
+        } 
+     } 
+ } 
 
 
 

@@ -23,6 +23,8 @@ namespace WpfApplication1calculator
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new CalculaterViewModel();
+            
         }
     }
 }
